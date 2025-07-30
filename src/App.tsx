@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ShoppingCart, Settings, Zap } from 'lucide-react';
+import { ShoppingCart, Settings, Zap, Sparkles, TrendingUp } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
 import { QueryTransformation } from './components/QueryTransformation';
@@ -67,23 +67,27 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Header */}
-      <header className="bg-amazon-blue text-white shadow-lg">
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-primary-700 to-accent-600"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <ShoppingCart className="w-8 h-8" />
+          <div className="relative flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-white/20 backdrop-blur-sm rounded-2xl">
+                <ShoppingCart className="w-8 h-8 text-white" />
+              </div>
               <div>
-                <h1 className="text-2xl font-bold">SmartFind</h1>
-                <p className="text-sm text-gray-300">Ricerca intelligente su Amazon</p>
+                <h1 className="text-3xl font-bold text-white">SmartFind</h1>
+                <p className="text-sm text-white/80 font-medium">Ricerca intelligente su Amazon</p>
               </div>
             </div>
             <button
               onClick={() => setShowApiModal(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-amazon-orange hover:bg-orange-600 rounded-md transition-colors"
+              className="flex items-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-2xl font-semibold transition-all duration-300 hover:-translate-y-0.5 border border-white/20"
             >
-              <Settings className="w-4 h-4" />
+              <Settings className="w-5 h-5" />
               Configura
             </button>
           </div>
@@ -91,18 +95,22 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-12">
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Zap className="w-6 h-6 text-amazon-orange" />
-            <h2 className="text-3xl font-bold text-gray-800">
+        <div className="text-center mb-16">
+          <div className="relative inline-block mb-6">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-3xl blur-xl"></div>
+            <div className="relative flex items-center justify-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-3xl border border-white/50 shadow-soft">
+              <Sparkles className="w-8 h-8 text-primary-600 floating-animation" />
+              <h2 className="text-4xl font-bold gradient-text">
               Trova quello che cerchi con l'AI
             </h2>
+              <TrendingUp className="w-8 h-8 text-accent-600 floating-animation" style={{ animationDelay: '2s' }} />
+            </div>
           </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Descrivi quello che stai cercando in linguaggio naturale e lascia che l'intelligenza artificiale 
-            trovi i migliori prodotti su Amazon per te.
+            trovi i <span className="gradient-text font-bold">migliori prodotti</span> su Amazon per te.
           </p>
         </div>
 
@@ -111,9 +119,9 @@ function App() {
 
         {/* Error Message */}
         {error && (
-          <div className="max-w-4xl mx-auto mb-6">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <p className="text-red-800">{error}</p>
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-2xl p-6 shadow-soft">
+              <p className="text-red-800 font-semibold text-center">{error}</p>
             </div>
           </div>
         )}
@@ -127,11 +135,17 @@ function App() {
 
         {/* Products Grid */}
         {products.length > 0 && (
-          <div className="max-w-6xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              Risultati della ricerca ({products.length})
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-10">
+              <h3 className="text-3xl font-bold gradient-text mb-2">
+                Risultati della ricerca
+              </h3>
+              <p className="text-gray-600 font-medium">
+                {products.length} prodotti trovati per te
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -141,25 +155,38 @@ function App() {
 
         {/* Empty State */}
         {!loading && products.length === 0 && !searchQuery && (
-          <div className="text-center py-12">
-            <ShoppingCart className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-600 mb-2">
+          <div className="text-center py-16">
+            <div className="relative inline-block mb-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-accent-500/10 rounded-full blur-xl"></div>
+              <div className="relative p-6 bg-white/80 backdrop-blur-sm rounded-full">
+                <ShoppingCart className="w-20 h-20 text-primary-400 floating-animation" />
+              </div>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-700 mb-3">
               Inizia la tua ricerca
             </h3>
-            <p className="text-gray-500">
-              Usa la barra di ricerca sopra per trovare prodotti su Amazon
+            <p className="text-gray-600 font-medium text-lg">
+              Usa la barra di ricerca sopra per trovare <span className="gradient-text font-bold">prodotti incredibili</span> su Amazon
             </p>
           </div>
         )}
       </main>
 
       {/* Footer */}
-      <footer className="bg-amazon-blue text-white py-8 mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-300">
+      <footer className="relative mt-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div className="relative container mx-auto px-4 py-12 text-center">
+          <div className="mb-6">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+              <Sparkles className="w-5 h-5 text-white" />
+              <span className="text-white font-bold">SmartFind</span>
+            </div>
+          </div>
+          <p className="text-gray-300 font-medium text-lg mb-2">
             SmartFind utilizza l'intelligenza artificiale per migliorare la tua esperienza di shopping su Amazon.
           </p>
-          <p className="text-sm text-gray-400 mt-2">
+          <p className="text-sm text-gray-400 font-medium">
             Questo sito partecipa al Programma Affiliazione Amazon EU
           </p>
         </div>

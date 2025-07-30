@@ -4,20 +4,39 @@
 
 @layer base {
   body {
-    font-family: 'Amazon Ember', Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
   }
 }
 
 @layer components {
-  .btn-amazon {
-    @apply bg-amazon-orange hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-6 rounded-xl shadow-medium hover:shadow-colored transform hover:-translate-y-0.5 transition-all duration-300;
   }
   
-  .btn-amazon-secondary {
-    @apply bg-amazon-blue hover:bg-amazon-light text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-semibold py-3 px-6 rounded-xl shadow-medium hover:shadow-glow transform hover:-translate-y-0.5 transition-all duration-300;
   }
   
-  .card-shadow {
-    @apply shadow-lg hover:shadow-xl transition-shadow duration-300;
+  .card-modern {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-soft hover:shadow-large border border-white/20 transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  }
+  
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
   }
 }
