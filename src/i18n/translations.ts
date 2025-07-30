@@ -22,13 +22,12 @@ export const translations: Record<string, Translation> = {
       'Laurea migliore amica che ama leggere'
     ],
     
-    // Query transformation
-    queryTransformationTitle: 'Trasformazione AI della Query',
-    originalQuery: 'Query originale:',
-    optimizedQuery: 'Query ottimizzata:',
-    category: 'Categoria',
-    priceRange: 'Range di prezzo',
-    keywords: 'Parole chiave',
+    // Loading
+    loadingTitle: '🤖 Sto cercando il regalo perfetto...',
+    loadingDescription: 'L\'intelligenza artificiale sta analizzando la tua richiesta',
+    loadingStep1: 'Analisi della richiesta',
+    loadingStep2: 'Ricerca su Amazon',
+    loadingStep3: 'Selezione dei migliori',
     
     // Products
     productsTitle: '🎁 Regali Perfetti Trovati',
@@ -88,13 +87,12 @@ export const translations: Record<string, Translation> = {
       'Graduation gift for best friend who loves reading'
     ],
     
-    // Query transformation
-    queryTransformationTitle: 'AI Query Transformation',
-    originalQuery: 'Original query:',
-    optimizedQuery: 'Optimized query:',
-    category: 'Category',
-    priceRange: 'Price range',
-    keywords: 'Keywords',
+    // Loading
+    loadingTitle: '🤖 Finding the perfect gift...',
+    loadingDescription: 'Artificial intelligence is analyzing your request',
+    loadingStep1: 'Analyzing request',
+    loadingStep2: 'Searching Amazon',
+    loadingStep3: 'Selecting the best',
     
     // Products
     productsTitle: '🎁 Perfect Gifts Found',
@@ -154,13 +152,12 @@ export const translations: Record<string, Translation> = {
       'Graduación mejor amiga que ama leer'
     ],
     
-    // Query transformation
-    queryTransformationTitle: 'Transformación IA de la Consulta',
-    originalQuery: 'Consulta original:',
-    optimizedQuery: 'Consulta optimizada:',
-    category: 'Categoría',
-    priceRange: 'Rango de precio',
-    keywords: 'Palabras clave',
+    // Loading
+    loadingTitle: '🤖 Buscando el regalo perfecto...',
+    loadingDescription: 'La inteligencia artificial está analizando tu solicitud',
+    loadingStep1: 'Analizando solicitud',
+    loadingStep2: 'Buscando en Amazon',
+    loadingStep3: 'Seleccionando los mejores',
     
     // Products
     productsTitle: '🎁 Regalos Perfectos Encontrados',
@@ -220,13 +217,12 @@ export const translations: Record<string, Translation> = {
       'Abschlussgeschenk für beste Freundin, die gerne liest'
     ],
     
-    // Query transformation
-    queryTransformationTitle: 'KI-Abfrage-Transformation',
-    originalQuery: 'Ursprüngliche Abfrage:',
-    optimizedQuery: 'Optimierte Abfrage:',
-    category: 'Kategorie',
-    priceRange: 'Preisbereich',
-    keywords: 'Schlüsselwörter',
+    // Loading
+    loadingTitle: '🤖 Suche das perfekte Geschenk...',
+    loadingDescription: 'Die künstliche Intelligenz analysiert deine Anfrage',
+    loadingStep1: 'Anfrage analysieren',
+    loadingStep2: 'Amazon durchsuchen',
+    loadingStep3: 'Die besten auswählen',
     
     // Products
     productsTitle: '🎁 Perfekte Geschenke Gefunden',
@@ -286,13 +282,12 @@ export const translations: Record<string, Translation> = {
       'Diplôme meilleure amie qui aime lire'
     ],
     
-    // Query transformation
-    queryTransformationTitle: 'Transformation IA de la Requête',
-    originalQuery: 'Requête originale:',
-    optimizedQuery: 'Requête optimisée:',
-    category: 'Catégorie',
-    priceRange: 'Gamme de prix',
-    keywords: 'Mots-clés',
+    // Loading
+    loadingTitle: '🤖 Recherche du cadeau parfait...',
+    loadingDescription: 'L\'intelligence artificielle analyse votre demande',
+    loadingStep1: 'Analyse de la demande',
+    loadingStep2: 'Recherche sur Amazon',
+    loadingStep3: 'Sélection des meilleurs',
     
     // Products
     productsTitle: '🎁 Cadeaux Parfaits Trouvés',
@@ -352,13 +347,12 @@ export const translations: Record<string, Translation> = {
       '给爱读书的最好朋友的毕业礼物'
     ],
     
-    // Query transformation
-    queryTransformationTitle: 'AI查询转换',
-    originalQuery: '原始查询：',
-    optimizedQuery: '优化查询：',
-    category: '类别',
-    priceRange: '价格范围',
-    keywords: '关键词',
+    // Loading
+    loadingTitle: '🤖 寻找完美礼物中...',
+    loadingDescription: '人工智能正在分析您的请求',
+    loadingStep1: '分析请求',
+    loadingStep2: '搜索亚马逊',
+    loadingStep3: '选择最佳',
     
     // Products
     productsTitle: '🎁 找到完美礼物',

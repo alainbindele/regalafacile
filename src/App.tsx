@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Gift, Heart } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
-import { QueryTransformation } from './components/QueryTransformation';
 import { LanguageSelector } from './components/LanguageSelector';
 import { OpenAIService } from './services/openai';
 import { amazonService } from './services/amazon';
@@ -104,19 +103,52 @@ function App() {
         {/* Search Bar */}
         <SearchBar onSearch={handleSearch} loading={loading} t={t} getArray={getArray} />
 
+        {/* Loading Spinner */}
+        {loading && (
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="loading-container">
+              <div className="loading-spinner">
+                <div className="spinner-ring"></div>
+                <div className="spinner-ring"></div>
+                <div className="spinner-ring"></div>
+              </div>
+              <div className="loading-content">
+                <h3 className="loading-title">{t('loadingTitle')}</h3>
+                <p className="loading-description">{t('loadingDescription')}</p>
+                <div className="loading-steps">
+                  <div className="loading-step">
+                    <div className="step-icon step-active">
+                      <div className="step-pulse"></div>
+                      1
+                    </div>
+                    <span className="step-text">{t('loadingStep1')}</span>
+                  </div>
+                  <div className="loading-step">
+                    <div className="step-icon step-active">
+                      <div className="step-pulse step-delay-1"></div>
+                      2
+                    </div>
+                    <span className="step-text">{t('loadingStep2')}</span>
+                  </div>
+                  <div className="loading-step">
+                    <div className="step-icon step-active">
+                      <div className="step-pulse step-delay-2"></div>
+                      3
+                    </div>
+                    <span className="step-text">{t('loadingStep3')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Error Message */}
         {error && (
           <div className="max-w-4xl mx-auto mb-8">
             <div className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-2xl p-6">
               <p className="text-red-800 font-semibold text-center">{error}</p>
             </div>
-          </div>
-        )}
-
-        {/* Query Transformation */}
-        {searchQuery && (
-          <div className="max-w-4xl mx-auto">
-            <QueryTransformation searchQuery={searchQuery} t={t} />
           </div>
         )}
 
