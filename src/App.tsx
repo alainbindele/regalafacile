@@ -82,7 +82,7 @@ function App() {
                 <Gift className="w-8 h-8 text-white" />
               </div>
               <div className="logo-text">
-                <h1>RegalAfacile</h1>
+                <h1>Regalafacile</h1>
                 <p className="text-sm text-white/80 font-medium">Trova il regalo perfetto</p>
               </div>
             </div>
@@ -180,11 +180,11 @@ function App() {
           <div className="mb-6">
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
               <Gift className="w-5 h-5 text-white" />
-              <span className="text-white font-bold">RegaleFacile.com</span>
+              <span className="text-white font-bold">Regalafacile.com</span>
             </div>
           </div>
           <p className="text-gray-300 font-medium text-lg mb-2">
-            RegaleFacile utilizza l'intelligenza artificiale per trovare il regalo perfetto per ogni occasione.
+            Regalafacile utilizza l'intelligenza artificiale per trovare il regalo perfetto per ogni occasione.
           </p>
           <p className="text-sm text-gray-400 font-medium">
             Questo sito partecipa al Programma Affiliazione Amazon EU

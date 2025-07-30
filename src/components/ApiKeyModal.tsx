@@ -34,7 +34,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
             <div className="query-icon">
               <Gift className="w-5 h-5 text-white" />
             </div>
-            Configurazione RegalAfacile
+            Configurazione Regalafacile
           </h2>
           <button
             onClick={onClose}
