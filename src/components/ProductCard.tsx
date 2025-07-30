@@ -13,16 +13,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const hasHalfStar = rating % 1 !== 0;
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<Star key={i} className="w-4 h-4 fill-amazon-yellow text-amazon-yellow" />);
+      stars.push(<Star key={i} className="w-4 h-4 star-filled" />);
     }
 
     if (hasHalfStar) {
-      stars.push(<Star key="half" className="w-4 h-4 fill-amazon-yellow/50 text-amazon-yellow" />);
+      stars.push(<Star key="half" className="w-4 h-4 star-filled opacity-50" />);
     }
 
     const emptyStars = 5 - Math.ceil(rating);
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<Star key={`empty-${i}`} className="w-4 h-4 text-gray-300" />);
+      stars.push(<Star key={`empty-${i}`} className="w-4 h-4 star-empty" />);
     }
 
     return stars;
