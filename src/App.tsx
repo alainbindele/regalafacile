@@ -70,8 +70,6 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Header */}
       <header className="header-gradient">
-          }}></div>
-        </div>
         <div className="container mx-auto px-4 py-4">
           <div className="relative flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -173,8 +171,6 @@ function App() {
 
       {/* Footer */}
       <footer className="footer-gradient mt-20">
-          }}></div>
-        </div>
         <div className="relative container mx-auto px-4 py-12 text-center">
           <div className="mb-6">
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
