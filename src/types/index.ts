@@ -35,5 +35,5 @@ export interface OpenAIResponse {
 export type Language = 'it' | 'en' | 'es' | 'de' | 'fr' | 'zh';
 
 export interface Translation {
-  [key: string]: string | Translation;
+  [key: string]: string | string[] | Translation;
 }
