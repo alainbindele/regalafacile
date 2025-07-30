@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Gift, Heart } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
@@ -28,7 +28,7 @@ function App() {
     setError('');
     
     try {
-      const openaiService = new OpenAIService(apiKey, language);
+      const openaiService = new OpenAIService(language);
       const aiResponse = await openaiService.transformQuery(userQuery);
       
       const query: SearchQuery = {
