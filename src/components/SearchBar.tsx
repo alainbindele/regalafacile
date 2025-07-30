@@ -4,9 +4,11 @@ import { Search, Loader2, Gift } from 'lucide-react';
 interface SearchBarProps {
   onSearch: (query: string) => void;
   loading: boolean;
+  t: (key: string) => string;
+  getArray: (key: string) => string[];
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading }) => {
+export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading, t, getArray }) => {
   const [query, setQuery] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -16,13 +18,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading }) => {
     }
   };
 
-  const exampleQueries = [
-    "Regalo per mia madre che ama cucinare, budget 100 euro",
-    "Compleanno bambino 8 anni appassionato di calcio",
-    "Anniversario fidanzata romantica, qualcosa di speciale",
-    "Regalo Natale papà tecnologico sotto i 200 euro",
-    "Laurea migliore amica che ama leggere"
-  ];
+  const exampleQueries = getArray('examples');
 
   return (
     <div className="search-container">
@@ -32,7 +28,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading }) => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Descrivi la persona e l'occasione (es: regalo compleanno mamma che ama cucinare)..."
+          placeholder={t('searchPlaceholder')}
           className="search-input"
           disabled={loading}
         />
@@ -50,7 +46,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading }) => {
       </form>
 
       <div className="examples-section">
-        <p className="examples-title">🎁 Prova con questi esempi:</p>
+        <p className="examples-title">{t('examplesTitle')}</p>
         <div className="examples-grid">
           {exampleQueries.map((example, index) => (
             <button

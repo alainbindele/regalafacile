@@ -4,28 +4,29 @@ import { SearchQuery } from '../types';
 
 interface QueryTransformationProps {
   searchQuery: SearchQuery;
+  t: (key: string) => string;
 }
 
-export const QueryTransformation: React.FC<QueryTransformationProps> = ({ searchQuery }) => {
+export const QueryTransformation: React.FC<QueryTransformationProps> = ({ searchQuery, t }) => {
   return (
     <div className="query-card mb-8">
       <h3 className="query-title">
         <div className="query-icon">
           <Zap className="w-5 h-5 text-white" />
         </div>
-        Trasformazione AI della Query
+        {t('queryTransformationTitle')}
       </h3>
       
       <div className="query-content">
         <div className="query-comparison">
           <div className="query-section">
-            <p className="query-label">Query originale:</p>
+            <p className="query-label">{t('originalQuery')}</p>
             <div className="query-original">
               <p>"{searchQuery.original}"</p>
             </div>
           </div>
           <div className="query-section">
-            <p className="query-label">Query ottimizzata:</p>
+            <p className="query-label">{t('optimizedQuery')}</p>
             <div className="query-transformed">
               <p>"{searchQuery.transformed}"</p>
             </div>
@@ -45,7 +46,7 @@ export const QueryTransformation: React.FC<QueryTransformationProps> = ({ search
                 <Tag className="w-4 h-4 text-white" />
               </div>
               <div className="query-detail-content">
-                <p className="query-detail-label category">Categoria</p>
+                <p className="query-detail-label category">{t('category')}</p>
                 <p className="query-detail-value category">{searchQuery.category}</p>
               </div>
             </div>
@@ -57,7 +58,7 @@ export const QueryTransformation: React.FC<QueryTransformationProps> = ({ search
                 <DollarSign className="w-4 h-4 text-white" />
               </div>
               <div className="query-detail-content">
-                <p className="query-detail-label price">Range di prezzo</p>
+                <p className="query-detail-label price">{t('priceRange')}</p>
                 <p className="query-detail-value price">
                   {searchQuery.priceRange.min ? `€${searchQuery.priceRange.min}` : '€0'} - 
                   {searchQuery.priceRange.max ? ` €${searchQuery.priceRange.max}` : ' ∞'}
@@ -71,7 +72,7 @@ export const QueryTransformation: React.FC<QueryTransformationProps> = ({ search
               <Hash className="w-4 h-4 text-white" />
             </div>
             <div className="query-detail-content">
-              <p className="query-detail-label keywords">Parole chiave</p>
+              <p className="query-detail-label keywords">{t('keywords')}</p>
               <p className="query-detail-value keywords">{searchQuery.keywords.join(', ')}</p>
             </div>
           </div>

@@ -31,3 +31,9 @@ export interface OpenAIResponse {
   };
   keywords: string[];
 }
+
+export type Language = 'it' | 'en' | 'es' | 'de' | 'fr' | 'zh';
+
+export interface Translation {
+  [key: string]: string | Translation;
+}

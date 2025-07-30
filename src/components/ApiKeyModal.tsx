@@ -6,13 +6,17 @@ interface ApiKeyModalProps {
   onClose: () => void;
   onSave: (apiKey: string) => void;
   currentApiKey?: string;
+  t: (key: string) => string;
+  getArray: (key: string) => string[];
 }
 
 export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ 
   isOpen, 
   onClose, 
   onSave, 
-  currentApiKey 
+  currentApiKey,
+  t,
+  getArray
 }) => {
   const [apiKey, setApiKey] = useState(currentApiKey || '');
   const envApiKey = import.meta.env.VITE_OPENAI_API_KEY;
@@ -34,7 +38,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
             <div className="query-icon">
               <Gift className="w-5 h-5 text-white" />
             </div>
-            Configurazione Regalafacile
+            {t('modalTitle')}
           </h2>
           <button
             onClick={onClose}
@@ -51,8 +55,8 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
                 <Shield className="w-4 h-4 text-white" />
               </div>
               <div className="modal-info-content" style={{ color: '#047857' }}>
-                <p className="modal-info-title">✅ API Key configurata tramite variabili d'ambiente</p>
-                <p>La tua API Key è già configurata nel sistema. Non è necessario inserirla manualmente.</p>
+                <p className="modal-info-title">{t('modalEnvConfigured')}</p>
+                <p>{t('modalEnvDescription')}</p>
               </div>
             </div>
           )}
@@ -60,19 +64,30 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
           <div className="modal-info">
             <AlertCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
             <div className="modal-info-content">
-              <p className="modal-info-title">Come ottenere la tua API Key:</p>
+              <p className="modal-info-title">{t('modalHowToTitle')}</p>
               <ol className="modal-info-list">
-                <li>Vai su <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="modal-info-link">platform.openai.com</a></li>
-                <li>Accedi o crea un account</li>
-                <li>Clicca su "Create new secret key"</li>
-                <li>Copia la chiave e incollala qui sotto</li>
+                {getArray('modalSteps').map((step, index) => (
+                  <li key={index}>
+                    {index === 0 ? (
+                      <>
+                        {step.split('platform.openai.com')[0]}
+                        <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="modal-info-link">
+                          platform.openai.com
+                        </a>
+                        {step.split('platform.openai.com')[1] || ''}
+                      </>
+                    ) : (
+                      step
+                    )}
+                  </li>
+                ))}
               </ol>
             </div>
           </div>
 
           <div className="modal-form-group">
             <label htmlFor="apiKey" className="modal-label">
-              API Key OpenAI
+              {t('modalApiKeyLabel')}
             </label>
             <input
               type="password"
@@ -85,7 +100,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
             <div className="modal-security">
               <Shield className="w-4 h-4 text-green-600" />
               <p className="modal-security-text">
-                La tua API key viene salvata solo localmente nel browser
+                {t('modalSecurityText')}
               </p>
             </div>
           </div>
@@ -96,7 +111,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
             onClick={onClose}
             className="btn-secondary"
           >
-            Annulla
+            {t('cancel')}
           </button>
           <button
             onClick={handleSave}
@@ -104,7 +119,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
             className="btn-primary"
             style={{ flex: 1 }}
           >
-            Salva
+            {t('save')}
           </button>
         </div>
       </div>

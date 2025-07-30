@@ -4,9 +4,10 @@ import { Product } from '../types';
 
 interface ProductCardProps {
   product: Product;
+  t: (key: string) => string;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product, t }) => {
   const renderStars = (rating: number) => {
     const stars = [];
     const fullStars = Math.floor(rating);
@@ -39,7 +40,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {product.prime && (
           <div className="product-badge-prime">
             <Truck className="w-3 h-3" />
-            Prime
+            {t('prime')}
           </div>
         )}
       </div>
@@ -61,7 +62,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <>
             <span className="product-original-price">{product.originalPrice}</span>
             <span className="product-discount-badge">
-              SCONTO
+              {t('discount')}
             </span>
           </>
         )}
@@ -74,7 +75,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="btn-primary"
         style={{ width: '100%' }}
       >
-        Vedi su Amazon
+        {t('viewOnAmazon')}
         <ExternalLink className="w-4 h-4" />
       </a>
     </div>

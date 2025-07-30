@@ -4,9 +4,11 @@ import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
 import { QueryTransformation } from './components/QueryTransformation';
 import { ApiKeyModal } from './components/ApiKeyModal';
+import { LanguageSelector } from './components/LanguageSelector';
 import { OpenAIService } from './services/openai';
 import { amazonService } from './services/amazon';
 import { Product, SearchQuery } from './types';
+import { useLanguage } from './hooks/useLanguage';
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -15,6 +17,7 @@ function App() {
   const [apiKey, setApiKey] = useState<string>('');
   const [showApiModal, setShowApiModal] = useState(false);
   const [error, setError] = useState<string>('');
+  const { language, setLanguage, t, getArray, supportedLanguages } = useLanguage();
 
   useEffect(() => {
     // Prova prima dalle variabili d'ambiente, poi dal localStorage
@@ -43,7 +46,7 @@ function App() {
     setError('');
     
     try {
-      const openaiService = new OpenAIService(apiKey);
+      const openaiService = new OpenAIService(apiKey, language);
       const aiResponse = await openaiService.transformQuery(userQuery);
       
       const query: SearchQuery = {
@@ -65,7 +68,7 @@ function App() {
       setProducts(searchResults);
     } catch (err) {
       console.error('Errore durante la ricerca:', err);
-      setError(err instanceof Error ? err.message : 'Errore durante la ricerca');
+      setError(err instanceof Error ? err.message : t('errorSearch'));
     } finally {
       setLoading(false);
     }
@@ -82,17 +85,24 @@ function App() {
                 <Gift className="w-8 h-8 text-white" />
               </div>
               <div className="logo-text">
-                <h1>Regalafacile</h1>
-                <p className="text-sm text-white/80 font-medium">Trova il regalo perfetto</p>
+                <h1>{t('headerTitle')}</h1>
+                <p className="text-sm text-white/80 font-medium">{t('headerSubtitle')}</p>
               </div>
             </div>
-            <button
-              onClick={() => setShowApiModal(true)}
-              className="btn-config"
-            >
-              <Settings className="w-5 h-5" />
-              Configura
-            </button>
+            <div className="header-actions">
+              <LanguageSelector
+                currentLanguage={language}
+                onLanguageChange={setLanguage}
+                supportedLanguages={supportedLanguages}
+              />
+              <button
+                onClick={() => setShowApiModal(true)}
+                className="btn-config"
+              >
+                <Settings className="w-5 h-5" />
+                {t('configure')}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -106,19 +116,18 @@ function App() {
             <div className="hero-title-content">
               <Gift className="w-10 h-10 text-pink-600 floating" />
               <h2 className="hero-title">
-                Il Regalo Perfetto per Ogni Occasione
+                {t('heroTitle')}
               </h2>
               <Heart className="w-8 h-8 text-red-500 floating-delayed" />
             </div>
           </div>
           <p className="hero-description">
-            Descrivi la persona e l'occasione in linguaggio naturale e lascia che l'intelligenza artificiale 
-            trovi il <span className="hero-highlight">regalo perfetto</span> su Amazon per te.
+            {t('heroDescription', { highlight: `<span class="hero-highlight">${t('heroHighlight')}</span>` }).replace(/<span class="hero-highlight">(.*?)<\/span>/, '<span class="hero-highlight">$1</span>')}
           </p>
         </div>
 
         {/* Search Bar */}
-        <SearchBar onSearch={handleSearch} loading={loading} />
+        <SearchBar onSearch={handleSearch} loading={loading} t={t} getArray={getArray} />
 
         {/* Error Message */}
         {error && (
@@ -132,7 +141,7 @@ function App() {
         {/* Query Transformation */}
         {searchQuery && (
           <div className="max-w-4xl mx-auto">
-            <QueryTransformation searchQuery={searchQuery} />
+            <QueryTransformation searchQuery={searchQuery} t={t} />
           </div>
         )}
 
@@ -141,15 +150,15 @@ function App() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10">
               <h3 className="text-3xl font-bold gradient-text mb-2">
-                🎁 Regali Perfetti Trovati
+                {t('productsTitle')}
               </h3>
               <p className="text-gray-600 font-medium">
-                {products.length} idee regalo selezionate per te
+                {t('productsSubtitle', { count: products.length })}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} t={t} />
               ))}
             </div>
           </div>
@@ -165,10 +174,10 @@ function App() {
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-700 mb-3">
-              Inizia la ricerca del regalo perfetto
+              {t('emptyStateTitle')}
             </h3>
             <p className="text-gray-600 font-medium text-lg">
-              Descrivi la persona e l'occasione per trovare <span className="gradient-text font-bold">regali straordinari</span> su Amazon
+              {t('emptyStateDescription', { highlight: `<span class="gradient-text font-bold">${t('emptyStateHighlight')}</span>` }).replace(/<span class="gradient-text font-bold">(.*?)<\/span>/, '<span class="gradient-text font-bold">$1</span>')}
             </p>
           </div>
         )}
@@ -184,10 +193,10 @@ function App() {
             </div>
           </div>
           <p className="text-gray-300 font-medium text-lg mb-2">
-            Regalafacile utilizza l'intelligenza artificiale per trovare il regalo perfetto per ogni occasione.
+            {t('footerDescription')}
           </p>
           <p className="text-sm text-gray-400 font-medium">
-            Questo sito partecipa al Programma Affiliazione Amazon EU
+            {t('footerDisclaimer')}
           </p>
         </div>
       </footer>
@@ -198,6 +207,8 @@ function App() {
         onClose={() => setShowApiModal(false)} 
         onSave={handleSaveApiKey}
         currentApiKey={apiKey}
+        t={t}
+        getArray={getArray}
       />
     </div>
   );
