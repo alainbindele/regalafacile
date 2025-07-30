@@ -82,7 +82,7 @@ function App() {
                 <Gift className="w-8 h-8 text-white" />
               </div>
               <div className="logo-text">
-                <h1 className="text-3xl font-bold text-white">RegaleFacile</h1>
+                <h1>RegalAfacile</h1>
                 <p className="text-sm text-white/80 font-medium">Trova il regalo perfetto</p>
               </div>
             </div>
