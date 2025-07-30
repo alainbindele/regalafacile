@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ShoppingCart, Settings, Zap } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
