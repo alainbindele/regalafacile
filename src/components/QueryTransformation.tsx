@@ -77,5 +77,6 @@ export const QueryTransformation: React.FC<QueryTransformationProps> = ({ search
           </div>
         </div>
       </div>
+    </div>
   );
 };
