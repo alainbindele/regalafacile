@@ -8,7 +8,7 @@ export const translations: Record<string, Translation> = {
     
     // Hero
     heroTitle: 'Il Regalo Perfetto per Ogni Occasione',
-    heroDescription: 'Descrivi la persona e l\'occasione in linguaggio naturale e lascia che l\'intelligenza artificiale trovi il {highlight} su Amazon per te.',
+    heroDescription: 'Descrivi la persona e l\'occasione in linguaggio naturale e lascia che l\'intelligenza artificiale trovi il regalo perfetto su Amazon per te.',
     heroHighlight: 'regalo perfetto',
     
     // Search
@@ -75,7 +75,7 @@ export const translations: Record<string, Translation> = {
     
     // Hero
     heroTitle: 'The Perfect Gift for Every Occasion',
-    heroDescription: 'Describe the person and occasion in natural language and let artificial intelligence find the {highlight} on Amazon for you.',
+    heroDescription: 'Describe the person and occasion in natural language and let artificial intelligence find the perfect gift on Amazon for you.',
     heroHighlight: 'perfect gift',
     
     // Search
@@ -142,7 +142,7 @@ export const translations: Record<string, Translation> = {
     
     // Hero
     heroTitle: 'El Regalo Perfecto para Cada Ocasión',
-    heroDescription: 'Describe la persona y la ocasión en lenguaje natural y deja que la inteligencia artificial encuentre el {highlight} en Amazon para ti.',
+    heroDescription: 'Describe la persona y la ocasión en lenguaje natural y deja que la inteligencia artificial encuentre el regalo perfecto en Amazon para ti.',
     heroHighlight: 'regalo perfecto',
     
     // Search
@@ -209,7 +209,7 @@ export const translations: Record<string, Translation> = {
     
     // Hero
     heroTitle: 'Das Perfekte Geschenk für Jeden Anlass',
-    heroDescription: 'Beschreibe die Person und den Anlass in natürlicher Sprache und lass die künstliche Intelligenz das {highlight} auf Amazon für dich finden.',
+    heroDescription: 'Beschreibe die Person und den Anlass in natürlicher Sprache und lass die künstliche Intelligenz das perfekte Geschenk auf Amazon für dich finden.',
     heroHighlight: 'perfekte Geschenk',
     
     // Search
@@ -276,7 +276,7 @@ export const translations: Record<string, Translation> = {
     
     // Hero
     heroTitle: 'Le Cadeau Parfait pour Chaque Occasion',
-    heroDescription: 'Décrivez la personne et l\'occasion en langage naturel et laissez l\'intelligence artificielle trouver le {highlight} sur Amazon pour vous.',
+    heroDescription: 'Décrivez la personne et l\'occasion en langage naturel et laissez l\'intelligence artificielle trouver le cadeau parfait sur Amazon pour vous.',
     heroHighlight: 'cadeau parfait',
     
     // Search
@@ -343,7 +343,7 @@ export const translations: Record<string, Translation> = {
     
     // Hero
     heroTitle: '每个场合的完美礼物',
-    heroDescription: '用自然语言描述人物和场合，让人工智能在亚马逊上为您找到{highlight}。',
+    heroDescription: '用自然语言描述人物和场合，让人工智能在亚马逊上为您找到完美礼物。',
     heroHighlight: '完美礼物',
     
     // Search

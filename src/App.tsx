@@ -97,7 +97,7 @@ function App() {
             </div>
           </div>
           <p className="hero-description">
-            {t('heroDescription', { highlight: `<span class="hero-highlight">${t('heroHighlight')}</span>` }).replace(/<span class="hero-highlight">(.*?)<\/span>/, '<span class="hero-highlight">$1</span>')}
+            {t('heroDescription').replace('{highlight}', t('heroHighlight'))}
           </p>
         </div>
 
