@@ -9,56 +9,56 @@ interface QueryTransformationProps {
 export const QueryTransformation: React.FC<QueryTransformationProps> = ({ searchQuery }) => {
   return (
     <div className="query-card mb-8">
-      <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-        <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl">
+      <h3 className="query-title">
+        <div className="query-icon">
           <Zap className="w-5 h-5 text-white" />
         </div>
         Trasformazione AI della Query
       </h3>
       
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-3">
-            <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Query originale:</p>
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-xl border border-gray-200">
-              <p className="italic text-gray-700">"{searchQuery.original}"</p>
+      <div className="query-content">
+        <div className="query-comparison">
+          <div className="query-section">
+            <p className="query-label">Query originale:</p>
+            <div className="query-original">
+              <p>"{searchQuery.original}"</p>
             </div>
           </div>
-          <div className="space-y-3">
-            <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Query ottimizzata:</p>
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl border border-blue-200">
-              <p className="font-semibold text-blue-800">"{searchQuery.transformed}"</p>
+          <div className="query-section">
+            <p className="query-label">Query ottimizzata:</p>
+            <div className="query-transformed">
+              <p>"{searchQuery.transformed}"</p>
             </div>
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full">
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div className="query-arrow">
             <ArrowRight className="w-6 h-6 text-white" />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="query-details">
           {searchQuery.category && (
-            <div className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
-              <div className="p-2 bg-blue-500 rounded-lg">
+            <div className="query-detail-item query-detail-category">
+              <div className="query-detail-icon category">
                 <Tag className="w-4 h-4 text-white" />
               </div>
-              <div>
-                <p className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Categoria</p>
-                <p className="font-bold text-blue-800">{searchQuery.category}</p>
+              <div className="query-detail-content">
+                <p className="query-detail-label category">Categoria</p>
+                <p className="query-detail-value category">{searchQuery.category}</p>
               </div>
             </div>
           )}
 
           {searchQuery.priceRange && (
-            <div className="flex items-center gap-3 bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-xl border border-green-200">
-              <div className="p-2 bg-green-500 rounded-lg">
+            <div className="query-detail-item query-detail-price">
+              <div className="query-detail-icon price">
                 <DollarSign className="w-4 h-4 text-white" />
               </div>
-              <div>
-                <p className="text-xs font-semibold text-green-600 uppercase tracking-wide">Range di prezzo</p>
-                <p className="font-bold text-green-800">
+              <div className="query-detail-content">
+                <p className="query-detail-label price">Range di prezzo</p>
+                <p className="query-detail-value price">
                   {searchQuery.priceRange.min ? `€${searchQuery.priceRange.min}` : '€0'} - 
                   {searchQuery.priceRange.max ? ` €${searchQuery.priceRange.max}` : ' ∞'}
                 </p>
@@ -66,13 +66,13 @@ export const QueryTransformation: React.FC<QueryTransformationProps> = ({ search
             </div>
           )}
 
-          <div className="flex items-center gap-3 bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
-            <div className="p-2 bg-purple-500 rounded-lg">
+          <div className="query-detail-item query-detail-keywords">
+            <div className="query-detail-icon keywords">
               <Hash className="w-4 h-4 text-white" />
             </div>
-            <div>
-              <p className="text-xs font-semibold text-purple-600 uppercase tracking-wide">Parole chiave</p>
-              <p className="font-bold text-purple-800">{searchQuery.keywords.join(', ')}</p>
+            <div className="query-detail-content">
+              <p className="query-detail-label keywords">Parole chiave</p>
+              <p className="query-detail-value keywords">{searchQuery.keywords.join(', ')}</p>
             </div>
           </div>
         </div>

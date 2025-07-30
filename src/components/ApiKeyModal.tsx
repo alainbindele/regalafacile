@@ -26,30 +26,30 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+    <div className="modal-backdrop">
       <div className="modal-content max-w-md w-full p-8">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl">
+        <div className="modal-header">
+          <h2 className="modal-title">
+            <div className="query-icon">
               <Key className="w-5 h-5 text-white" />
             </div>
             Configurazione API OpenAI
           </h2>
           <button
             onClick={onClose}
-            className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-xl transition-all duration-200"
+            className="modal-close"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="mb-6">
-          <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl mb-6 border border-blue-100">
+        <div>
+          <div className="modal-info">
             <AlertCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-blue-800">
-              <p className="font-bold mb-2">Come ottenere la tua API Key:</p>
-              <ol className="list-decimal list-inside space-y-2">
-                <li>Vai su <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="underline">platform.openai.com</a></li>
+            <div className="modal-info-content">
+              <p className="modal-info-title">Come ottenere la tua API Key:</p>
+              <ol className="modal-info-list">
+                <li>Vai su <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="modal-info-link">platform.openai.com</a></li>
                 <li>Accedi o crea un account</li>
                 <li>Clicca su "Create new secret key"</li>
                 <li>Copia la chiave e incollala qui sotto</li>
@@ -57,36 +57,39 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
             </div>
           </div>
 
-          <label htmlFor="apiKey" className="block text-sm font-bold text-gray-700 mb-3">
-            API Key OpenAI
-          </label>
-          <input
-            type="password"
-            id="apiKey"
-            value={apiKey}
-            onChange={(e) => setApiKey(e.target.value)}
-            placeholder="sk-..."
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400 transition-all duration-300 bg-white/80 backdrop-blur-sm"
-          />
-          <div className="flex items-center gap-2 mt-3">
-            <Shield className="w-4 h-4 text-green-600" />
-            <p className="text-xs text-green-700 font-medium">
-              La tua API key viene salvata solo localmente nel browser
-          </p>
+          <div className="modal-form-group">
+            <label htmlFor="apiKey" className="modal-label">
+              API Key OpenAI
+            </label>
+            <input
+              type="password"
+              id="apiKey"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              placeholder="sk-..."
+              className="modal-input"
+            />
+            <div className="modal-security">
+              <Shield className="w-4 h-4 text-green-600" />
+              <p className="modal-security-text">
+                La tua API key viene salvata solo localmente nel browser
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="flex gap-4">
+        <div className="modal-actions">
           <button
             onClick={onClose}
-            className="flex-1 px-6 py-3 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-0.5"
+            className="btn-secondary"
           >
             Annulla
           </button>
           <button
             onClick={handleSave}
             disabled={!apiKey.trim()}
-            className="flex-1 btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn-primary"
+            style={{ flex: 1 }}
           >
             Salva
           </button>

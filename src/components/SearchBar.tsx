@@ -24,11 +24,48 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading }) => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto mb-12">
-      <div className="search-container mb-8">
-        <form onSubmit={handleSubmit}>
-        <div className="relative">
-          <Sparkles className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
+    <div className="search-container">
+      <form onSubmit={handleSubmit} className="search-form">
+        <Sparkles className="search-icon-left w-5 h-5" />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Descrivi quello che stai cercando in linguaggio naturale..."
+          className="search-input"
+          disabled={loading}
+        />
+        <button
+          type="submit"
+          disabled={loading || !query.trim()}
+          className="search-button"
+        >
+          {loading ? (
+            <Loader2 className="w-6 h-6 spin" />
+          ) : (
+            <Search className="w-6 h-6" />
+          )}
+        </button>
+      </form>
+
+      <div className="examples-section">
+        <p className="examples-title">✨ Prova con questi esempi:</p>
+        <div className="examples-grid">
+          {exampleQueries.map((example, index) => (
+            <button
+              key={index}
+              onClick={() => setQuery(example)}
+              className="example-button"
+              disabled={loading}
+            >
+              {example}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
           <input
             type="text"
             value={query}

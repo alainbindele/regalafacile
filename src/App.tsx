@@ -70,20 +70,20 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Header */}
       <header className="header-gradient">
-        <div className="container mx-auto px-4 py-4">
-          <div className="relative flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-white/20 backdrop-blur-sm rounded-2xl hover-lift">
+        <div className="container">
+          <div className="header-content">
+            <div className="header-logo">
+              <div className="logo-icon">
                 <ShoppingCart className="w-8 h-8 text-white" />
               </div>
-              <div>
+              <div className="logo-text">
                 <h1 className="text-3xl font-bold text-white">SmartFind</h1>
                 <p className="text-sm text-white/80 font-medium">Ricerca intelligente su Amazon</p>
               </div>
             </div>
             <button
               onClick={() => setShowApiModal(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-2xl font-semibold transition-all duration-300 hover-lift border border-white/20"
+              className="btn-config"
             >
               <Settings className="w-5 h-5" />
               Configura
@@ -93,22 +93,22 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-12">
+      <main className="container" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="relative inline-block mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
-            <div className="relative flex items-center justify-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-3xl border border-white/50">
+        <div className="hero-section">
+          <div className="hero-title-container">
+            <div className="hero-title-bg"></div>
+            <div className="hero-title-content">
               <Sparkles className="w-8 h-8 text-blue-600 floating" />
-              <h2 className="text-4xl font-bold gradient-text">
+              <h2 className="hero-title">
                 Trova quello che cerchi con l'AI
               </h2>
               <TrendingUp className="w-8 h-8 text-purple-600 floating-delayed" />
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="hero-description">
             Descrivi quello che stai cercando in linguaggio naturale e lascia che l'intelligenza artificiale 
-            trovi i <span className="gradient-text font-bold">migliori prodotti</span> su Amazon per te.
+            trovi i <span className="hero-highlight">migliori prodotti</span> su Amazon per te.
           </p>
         </div>
 
