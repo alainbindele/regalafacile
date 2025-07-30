@@ -2,9 +2,6 @@ import { Product } from '../types';
 
 // Tag di affiliazione Amazon dalle variabili d'ambiente
 const AFFILIATE_TAG = import.meta.env.VITE_AMAZON_AFFILIATE_TAG || 'tuo-tag-affiliato-20';
-const AMAZON_ACCESS_KEY = import.meta.env.VITE_AMAZON_ACCESS_KEY || '';
-const AMAZON_SECRET_KEY = import.meta.env.VITE_AMAZON_SECRET_KEY || '';
-const AMAZON_ASSOCIATE_TAG = import.meta.env.VITE_AMAZON_ASSOCIATE_TAG || AFFILIATE_TAG;
 
 export class AmazonService {
   // Prodotti demo per la dimostrazione
