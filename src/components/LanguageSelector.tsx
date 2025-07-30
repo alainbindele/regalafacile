@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe } from 'lucide-react';
+import { Globe, ChevronDown } from 'lucide-react';
 import { Language } from '../types';
 
 interface LanguageSelectorProps {
@@ -32,24 +32,21 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   supportedLanguages
 }) => {
   return (
-    <div className="language-selector">
-      <div className="language-selector-trigger">
+    <div className="language-selector-container">
+      <div className="language-selector-wrapper">
         <Globe className="w-4 h-4" />
-        <span className="language-flag">{languageFlags[currentLanguage]}</span>
-        <span className="language-name">{languageNames[currentLanguage]}</span>
-      </div>
-      
-      <div className="language-selector-dropdown">
-        {supportedLanguages.map((lang) => (
-          <button
-            key={lang}
-            onClick={() => onLanguageChange(lang)}
-            className={`language-option ${lang === currentLanguage ? 'active' : ''}`}
-          >
-            <span className="language-flag">{languageFlags[lang]}</span>
-            <span className="language-name">{languageNames[lang]}</span>
-          </button>
-        ))}
+        <select
+          value={currentLanguage}
+          onChange={(e) => onLanguageChange(e.target.value as Language)}
+          className="language-select"
+        >
+          {supportedLanguages.map((lang) => (
+            <option key={lang} value={lang}>
+              {languageFlags[lang]} {languageNames[lang]}
+            </option>
+          ))}
+        </select>
+        <ChevronDown className="w-4 h-4 language-chevron" />
       </div>
     </div>
   );
