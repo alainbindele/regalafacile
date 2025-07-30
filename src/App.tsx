@@ -69,18 +69,13 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Header */}
-      <header className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-primary-700 to-accent-600"></div>
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat'
+      <header className="header-gradient">
           }}></div>
         </div>
         <div className="container mx-auto px-4 py-4">
           <div className="relative flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-white/20 backdrop-blur-sm rounded-2xl">
+              <div className="p-3 bg-white/20 backdrop-blur-sm rounded-2xl hover-lift">
                 <ShoppingCart className="w-8 h-8 text-white" />
               </div>
               <div>
@@ -90,7 +85,7 @@ function App() {
             </div>
             <button
               onClick={() => setShowApiModal(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-2xl font-semibold transition-all duration-300 hover:-translate-y-0.5 border border-white/20"
+              className="flex items-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white rounded-2xl font-semibold transition-all duration-300 hover-lift border border-white/20"
             >
               <Settings className="w-5 h-5" />
               Configura
@@ -104,13 +99,13 @@ function App() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="relative inline-block mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-3xl blur-xl"></div>
-            <div className="relative flex items-center justify-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-3xl border border-white/50 shadow-soft">
-              <Sparkles className="w-8 h-8 text-primary-600 floating-animation" />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
+            <div className="relative flex items-center justify-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-3xl border border-white/50">
+              <Sparkles className="w-8 h-8 text-blue-600 floating" />
               <h2 className="text-4xl font-bold gradient-text">
                 Trova quello che cerchi con l'AI
               </h2>
-              <TrendingUp className="w-8 h-8 text-accent-600 floating-animation" style={{ animationDelay: '2s' }} />
+              <TrendingUp className="w-8 h-8 text-purple-600 floating-delayed" />
             </div>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
@@ -125,7 +120,7 @@ function App() {
         {/* Error Message */}
         {error && (
           <div className="max-w-4xl mx-auto mb-8">
-            <div className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-2xl p-6 shadow-soft">
+            <div className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-2xl p-6">
               <p className="text-red-800 font-semibold text-center">{error}</p>
             </div>
           </div>
@@ -161,9 +156,9 @@ function App() {
         {!loading && products.length === 0 && !searchQuery && (
           <div className="text-center py-16">
             <div className="relative inline-block mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-accent-500/10 rounded-full blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-xl"></div>
               <div className="relative p-6 bg-white/80 backdrop-blur-sm rounded-full">
-                <ShoppingCart className="w-20 h-20 text-primary-400 floating-animation" />
+                <ShoppingCart className="w-20 h-20 text-blue-400 floating" />
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-700 mb-3">
@@ -177,12 +172,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="relative mt-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black"></div>
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat'
+      <footer className="footer-gradient mt-20">
           }}></div>
         </div>
         <div className="relative container mx-auto px-4 py-12 text-center">
@@ -204,7 +194,7 @@ function App() {
       {/* API Key Modal */}
       <ApiKeyModal
         isOpen={showApiModal}
-        onClose={() => setShowApiModal(false)}
+        onClose={() => setShowApiModal(false)} 
         onSave={handleSaveApiKey}
         currentApiKey={apiKey}
       />

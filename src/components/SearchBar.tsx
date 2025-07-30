@@ -25,23 +25,22 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading }) => {
 
   return (
     <div className="w-full max-w-4xl mx-auto mb-12">
-      <div className="relative mb-8">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-3xl blur-xl"></div>
-        <form onSubmit={handleSubmit} className="relative">
+      <div className="search-container mb-8">
+        <form onSubmit={handleSubmit}>
         <div className="relative">
+          <Sparkles className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Descrivi quello che stai cercando in linguaggio naturale..."
-            className="w-full px-6 py-5 pr-16 text-lg bg-white/90 backdrop-blur-sm border-2 border-white/50 rounded-2xl focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-100 shadow-soft transition-all duration-300 placeholder-gray-400"
+            className="search-input"
             disabled={loading}
           />
-          <Sparkles className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary-400" />
           <button
             type="submit"
             disabled={loading || !query.trim()}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 p-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:from-primary-600 hover:to-primary-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-medium hover:shadow-colored transition-all duration-300"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 p-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
           >
             {loading ? (
               <Loader2 className="w-6 h-6 animate-spin" />
@@ -60,7 +59,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading }) => {
             <button
               key={index}
               onClick={() => setQuery(example)}
-              className="px-4 py-2 text-sm bg-white/70 hover:bg-white/90 backdrop-blur-sm rounded-full border border-white/50 hover:border-primary-200 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-0.5"
+              className="px-4 py-2 text-sm bg-white/70 hover:bg-white/90 backdrop-blur-sm rounded-full border border-white/50 hover:border-blue-200 transition-all duration-300 hover-lift"
               disabled={loading}
             >
               {example}

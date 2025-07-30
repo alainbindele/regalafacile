@@ -29,26 +29,25 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="group card-modern p-6 hover:scale-105 transition-all duration-300">
+    <div className="group product-card">
       <div className="relative mb-6 overflow-hidden rounded-xl">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
         <img
           src={product.image}
           alt={product.title}
-          className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+          className="product-image"
         />
-        <button className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:scale-110 z-20">
+        <button className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:scale-110">
           <Heart className="w-4 h-4 text-gray-600 hover:text-red-500 transition-colors" />
         </button>
         {product.prime && (
-          <div className="absolute top-3 left-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-medium">
+          <div className="absolute top-3 left-3 badge-prime">
             <Truck className="w-3 h-3" />
             Prime
           </div>
         )}
       </div>
 
-      <h3 className="font-bold text-gray-800 mb-3 line-clamp-2 min-h-[3rem] text-lg group-hover:text-primary-700 transition-colors">
+      <h3 className="font-bold text-gray-800 mb-3 line-clamp-2 min-h-[3rem] text-lg group-hover:text-blue-700 transition-colors">
         {product.title}
       </h3>
 
@@ -60,11 +59,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-2xl font-bold gradient-text">{product.price}</span>
+        <span className="text-2xl font-bold text-gray-900">{product.price}</span>
         {product.originalPrice && (
           <>
             <span className="text-sm text-gray-400 line-through">{product.originalPrice}</span>
-            <span className="text-xs bg-success-100 text-success-700 px-2 py-1 rounded-full font-semibold">
+            <span className="badge-discount">
               SCONTO
             </span>
           </>
@@ -75,7 +74,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         href={product.affiliateLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="group/btn flex items-center justify-center gap-2 w-full btn-primary"
+        className="btn-primary w-full group/btn"
       >
         Vedi su Amazon
         <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
