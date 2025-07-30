@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Key, AlertCircle, Shield, Gift } from 'lucide-react';
+import { X, AlertCircle, Shield, Gift } from 'lucide-react';
 
 interface ApiKeyModalProps {
   isOpen: boolean;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Gift, Settings, Sparkles, Heart, Star as StarIcon } from 'lucide-react';
+import { Gift, Settings, Heart } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
 import { QueryTransformation } from './components/QueryTransformation';
