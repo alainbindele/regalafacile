@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ShoppingCart, Settings, Zap, Sparkles, TrendingUp } from 'lucide-react';
+import { ShoppingCart, Settings, Sparkles, TrendingUp } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
 import { QueryTransformation } from './components/QueryTransformation';
