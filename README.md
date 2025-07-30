@@ -1,4 +1,4 @@
-# SmartFind - Sito di Affiliazione Amazon con AI
+# Regalafacile - Sito di Affiliazione Amazon con AI
 
 Un sito moderno di affiliazione Amazon che utilizza l'intelligenza artificiale di OpenAI per trasformare le ricerche in linguaggio naturale in query ottimizzate per Amazon.
 
