@@ -194,7 +194,7 @@ export const translations: Record<string, Translation> = {
     footerDisclaimer: 'Este sitio participa en el Programa de Afiliados de Amazon EU',
     
     // Errors
-    errorApiKey: 'API Key OpenAI no configurada. Configura VITE_OPENAI_API_KEY en variables de entorno.',
+    errorApiKey: 'Clave API OpenAI no configurada. Configura VITE_OPENAI_API_KEY en variables de entorno.',
     errorOpenAI: 'Error OpenAI:',
     errorSearch: 'Error durante la búsqueda'
   },
