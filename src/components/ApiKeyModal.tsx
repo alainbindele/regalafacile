@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Key, AlertCircle, Shield } from 'lucide-react';
+import { X, Key, AlertCircle, Shield, Gift } from 'lucide-react';
 
 interface ApiKeyModalProps {
   isOpen: boolean;
@@ -32,9 +32,9 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
         <div className="modal-header">
           <h2 className="modal-title">
             <div className="query-icon">
-              <Key className="w-5 h-5 text-white" />
+              <Gift className="w-5 h-5 text-white" />
             </div>
-            Configurazione API OpenAI
+            Configurazione RegaleFacile
           </h2>
           <button
             onClick={onClose}

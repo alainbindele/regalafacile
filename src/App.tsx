@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ShoppingCart, Settings, Sparkles, TrendingUp } from 'lucide-react';
+import { Gift, Settings, Sparkles, Heart, Star as StarIcon } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
 import { QueryTransformation } from './components/QueryTransformation';
@@ -79,11 +79,11 @@ function App() {
           <div className="header-content">
             <div className="header-logo">
               <div className="logo-icon">
-                <ShoppingCart className="w-8 h-8 text-white" />
+                <Gift className="w-8 h-8 text-white" />
               </div>
               <div className="logo-text">
-                <h1 className="text-3xl font-bold text-white">SmartFind</h1>
-                <p className="text-sm text-white/80 font-medium">Ricerca intelligente su Amazon</p>
+                <h1 className="text-3xl font-bold text-white">RegaleFacile</h1>
+                <p className="text-sm text-white/80 font-medium">Trova il regalo perfetto</p>
               </div>
             </div>
             <button
@@ -104,16 +104,16 @@ function App() {
           <div className="hero-title-container">
             <div className="hero-title-bg"></div>
             <div className="hero-title-content">
-              <Sparkles className="w-8 h-8 text-blue-600 floating" />
+              <Gift className="w-10 h-10 text-pink-600 floating" />
               <h2 className="hero-title">
-                Trova quello che cerchi con l'AI
+                Il Regalo Perfetto per Ogni Occasione
               </h2>
-              <TrendingUp className="w-8 h-8 text-purple-600 floating-delayed" />
+              <Heart className="w-8 h-8 text-red-500 floating-delayed" />
             </div>
           </div>
           <p className="hero-description">
-            Descrivi quello che stai cercando in linguaggio naturale e lascia che l'intelligenza artificiale 
-            trovi i <span className="hero-highlight">migliori prodotti</span> su Amazon per te.
+            Descrivi la persona e l'occasione in linguaggio naturale e lascia che l'intelligenza artificiale 
+            trovi il <span className="hero-highlight">regalo perfetto</span> su Amazon per te.
           </p>
         </div>
 
@@ -141,10 +141,10 @@ function App() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10">
               <h3 className="text-3xl font-bold gradient-text mb-2">
-                Risultati della ricerca
+                🎁 Regali Perfetti Trovati
               </h3>
               <p className="text-gray-600 font-medium">
-                {products.length} prodotti trovati per te
+                {products.length} idee regalo selezionate per te
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -161,14 +161,14 @@ function App() {
             <div className="relative inline-block mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-xl"></div>
               <div className="relative p-6 bg-white/80 backdrop-blur-sm rounded-full">
-                <ShoppingCart className="w-20 h-20 text-blue-400 floating" />
+                <Gift className="w-20 h-20 text-pink-400 floating" />
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-700 mb-3">
-              Inizia la tua ricerca
+              Inizia la ricerca del regalo perfetto
             </h3>
             <p className="text-gray-600 font-medium text-lg">
-              Usa la barra di ricerca sopra per trovare <span className="gradient-text font-bold">prodotti incredibili</span> su Amazon
+              Descrivi la persona e l'occasione per trovare <span className="gradient-text font-bold">regali straordinari</span> su Amazon
             </p>
           </div>
         )}
@@ -179,12 +179,12 @@ function App() {
         <div className="relative container mx-auto px-4 py-12 text-center">
           <div className="mb-6">
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-              <Sparkles className="w-5 h-5 text-white" />
-              <span className="text-white font-bold">SmartFind</span>
+              <Gift className="w-5 h-5 text-white" />
+              <span className="text-white font-bold">RegaleFacile.com</span>
             </div>
           </div>
           <p className="text-gray-300 font-medium text-lg mb-2">
-            SmartFind utilizza l'intelligenza artificiale per migliorare la tua esperienza di shopping su Amazon.
+            RegaleFacile utilizza l'intelligenza artificiale per trovare il regalo perfetto per ogni occasione.
           </p>
           <p className="text-sm text-gray-400 font-medium">
             Questo sito partecipa al Programma Affiliazione Amazon EU
