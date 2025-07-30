@@ -39,8 +39,7 @@ export const translations: Record<string, Translation> = {
     
     // Empty state
     emptyStateTitle: 'Inizia la ricerca del regalo perfetto',
-    emptyStateDescription: 'Descrivi la persona e l\'occasione per trovare {highlight} su Amazon',
-    emptyStateHighlight: 'regali straordinari',
+    emptyStateDescription: 'Descrivi la persona e l\'occasione per trovare regali straordinari su Amazon',
     
     // Modal
     modalTitle: 'Configurazione Regalafacile',
@@ -63,7 +62,7 @@ export const translations: Record<string, Translation> = {
     footerDisclaimer: 'Questo sito partecipa al Programma Affiliazione Amazon EU',
     
     // Errors
-    errorApiKey: 'API Key OpenAI non configurata. Configura VITE_OPENAI_API_KEY nelle variabili d\'ambiente o tramite l\'interfaccia.',
+    errorApiKey: 'API Key OpenAI non configurata. Configura VITE_OPENAI_API_KEY nelle variabili d\'ambiente.',
     errorOpenAI: 'Errore OpenAI:',
     errorSearch: 'Errore durante la ricerca'
   },
@@ -106,8 +105,7 @@ export const translations: Record<string, Translation> = {
     
     // Empty state
     emptyStateTitle: 'Start searching for the perfect gift',
-    emptyStateDescription: 'Describe the person and occasion to find {highlight} on Amazon',
-    emptyStateHighlight: 'amazing gifts',
+    emptyStateDescription: 'Describe the person and occasion to find amazing gifts on Amazon',
     
     // Modal
     modalTitle: 'Regalafacile Configuration',
@@ -130,7 +128,7 @@ export const translations: Record<string, Translation> = {
     footerDisclaimer: 'This site participates in the Amazon EU Affiliate Program',
     
     // Errors
-    errorApiKey: 'OpenAI API Key not configured. Configure VITE_OPENAI_API_KEY in environment variables or via the interface.',
+    errorApiKey: 'OpenAI API Key not configured. Configure VITE_OPENAI_API_KEY in environment variables.',
     errorOpenAI: 'OpenAI Error:',
     errorSearch: 'Error during search'
   },
@@ -173,8 +171,7 @@ export const translations: Record<string, Translation> = {
     
     // Empty state
     emptyStateTitle: 'Comienza la búsqueda del regalo perfecto',
-    emptyStateDescription: 'Describe la persona y la ocasión para encontrar {highlight} en Amazon',
-    emptyStateHighlight: 'regalos extraordinarios',
+    emptyStateDescription: 'Describe la persona y la ocasión para encontrar regalos extraordinarios en Amazon',
     
     // Modal
     modalTitle: 'Configuración Regalafacile',
@@ -197,7 +194,7 @@ export const translations: Record<string, Translation> = {
     footerDisclaimer: 'Este sitio participa en el Programa de Afiliados de Amazon EU',
     
     // Errors
-    errorApiKey: 'API Key OpenAI no configurada. Configura VITE_OPENAI_API_KEY en variables de entorno o via la interfaz.',
+    errorApiKey: 'API Key OpenAI no configurada. Configura VITE_OPENAI_API_KEY en variables de entorno.',
     errorOpenAI: 'Error OpenAI:',
     errorSearch: 'Error durante la búsqueda'
   },
@@ -240,8 +237,7 @@ export const translations: Record<string, Translation> = {
     
     // Empty state
     emptyStateTitle: 'Beginne die Suche nach dem perfekten Geschenk',
-    emptyStateDescription: 'Beschreibe die Person und den Anlass, um {highlight} auf Amazon zu finden',
-    emptyStateHighlight: 'außergewöhnliche Geschenke',
+    emptyStateDescription: 'Beschreibe die Person und den Anlass, um außergewöhnliche Geschenke auf Amazon zu finden',
     
     // Modal
     modalTitle: 'Regalafacile Konfiguration',
@@ -264,7 +260,7 @@ export const translations: Record<string, Translation> = {
     footerDisclaimer: 'Diese Seite nimmt am Amazon EU Partnerprogramm teil',
     
     // Errors
-    errorApiKey: 'OpenAI API Key nicht konfiguriert. Konfiguriere VITE_OPENAI_API_KEY in Umgebungsvariablen oder über die Benutzeroberfläche.',
+    errorApiKey: 'OpenAI API Key nicht konfiguriert. Konfiguriere VITE_OPENAI_API_KEY in Umgebungsvariablen.',
     errorOpenAI: 'OpenAI Fehler:',
     errorSearch: 'Fehler bei der Suche'
   },
@@ -307,8 +303,7 @@ export const translations: Record<string, Translation> = {
     
     // Empty state
     emptyStateTitle: 'Commencez la recherche du cadeau parfait',
-    emptyStateDescription: 'Décrivez la personne et l\'occasion pour trouver des {highlight} sur Amazon',
-    emptyStateHighlight: 'cadeaux extraordinaires',
+    emptyStateDescription: 'Décrivez la personne et l\'occasion pour trouver des cadeaux extraordinaires sur Amazon',
     
     // Modal
     modalTitle: 'Configuration Regalafacile',
@@ -331,7 +326,7 @@ export const translations: Record<string, Translation> = {
     footerDisclaimer: 'Ce site participe au Programme d\'Affiliation Amazon EU',
     
     // Errors
-    errorApiKey: 'Clé API OpenAI non configurée. Configurez VITE_OPENAI_API_KEY dans les variables d\'environnement ou via l\'interface.',
+    errorApiKey: 'Clé API OpenAI non configurée. Configurez VITE_OPENAI_API_KEY dans les variables d\'environnement.',
     errorOpenAI: 'Erreur OpenAI:',
     errorSearch: 'Erreur lors de la recherche'
   },
@@ -374,8 +369,7 @@ export const translations: Record<string, Translation> = {
     
     // Empty state
     emptyStateTitle: '开始寻找完美礼物',
-    emptyStateDescription: '描述人物和场合，在亚马逊上找到{highlight}',
-    emptyStateHighlight: '非凡礼物',
+    emptyStateDescription: '描述人物和场合，在亚马逊上找到非凡礼物',
     
     // Modal
     modalTitle: 'Regalafacile配置',
@@ -398,7 +392,7 @@ export const translations: Record<string, Translation> = {
     footerDisclaimer: '本站参与亚马逊欧盟联盟计划',
     
     // Errors
-    errorApiKey: 'OpenAI API密钥未配置。请在环境变量中配置VITE_OPENAI_API_KEY或通过界面配置。',
+    errorApiKey: 'OpenAI API密钥未配置。请在环境变量中配置VITE_OPENAI_API_KEY。',
     errorOpenAI: 'OpenAI错误：',
     errorSearch: '搜索时出错'
   }

@@ -152,7 +152,7 @@ function App() {
               {t('emptyStateTitle')}
             </h3>
             <p className="text-gray-600 font-medium text-lg">
-              {t('emptyStateDescription', { highlight: `<span class="gradient-text font-bold">${t('emptyStateHighlight')}</span>` }).replace(/<span class="gradient-text font-bold">(.*?)<\/span>/, '<span class="gradient-text font-bold">$1</span>')}
+              {t('emptyStateDescription')}
             </p>
           </div>
         )}

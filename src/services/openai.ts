@@ -10,10 +10,10 @@ export class OpenAIService {
   }
 
   async transformQuery(userQuery: string): Promise<OpenAIResponse> {
-    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    const apiKey = import.meta.env.VITE_OPENAI_API_KEY || process.env.VITE_OPENAI_API_KEY;
     
     if (!apiKey) {
-      throw new Error('OpenAI API Key not configured. Configure VITE_OPENAI_API_KEY in environment variables or via the interface.');
+      throw new Error('OpenAI API Key not configured. Configure VITE_OPENAI_API_KEY in environment variables.');
     }
 
     const prompts = {
