@@ -145,30 +145,8 @@ body {
   transform: translateY(0);
 }
 
-.btn-config {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  color: white;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-config:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
 @media (max-width: 640px) {
-  .btn-primary,
-  .btn-config {
+  .btn-primary {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
   }
@@ -473,10 +451,6 @@ body {
   .language-select {
     font-size: 0.75rem;
     min-width: 100px;
-  }
-  
-  .header-actions {
-    gap: 0.5rem;
   }
 }
 

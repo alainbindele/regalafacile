@@ -1,19 +1,18 @@
 import { OpenAIResponse, Language } from '../types';
 
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
-const DEFAULT_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || '';
 
 export class OpenAIService {
-  private apiKey: string;
   private language: Language;
 
-  constructor(apiKey: string, language: Language = 'it') {
-    this.apiKey = apiKey || DEFAULT_API_KEY;
+  constructor(language: Language = 'it') {
     this.language = language;
   }
 
   async transformQuery(userQuery: string): Promise<OpenAIResponse> {
-    if (!this.apiKey) {
+    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    
+    if (!apiKey) {
       throw new Error('OpenAI API Key not configured. Configure VITE_OPENAI_API_KEY in environment variables or via the interface.');
     }
 
@@ -72,7 +71,7 @@ ${examples[this.language]}`;
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.apiKey}`,
+          'Authorization': `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
           model: 'gpt-4o-mini',

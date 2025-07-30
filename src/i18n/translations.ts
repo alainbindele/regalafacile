@@ -5,7 +5,6 @@ export const translations: Record<string, Translation> = {
     // Header
     headerTitle: 'Regalafacile',
     headerSubtitle: 'Trova il regalo perfetto',
-    configure: 'Configura',
     
     // Hero
     heroTitle: 'Il Regalo Perfetto per Ogni Occasione',
@@ -73,7 +72,6 @@ export const translations: Record<string, Translation> = {
     // Header
     headerTitle: 'Regalafacile',
     headerSubtitle: 'Find the perfect gift',
-    configure: 'Configure',
     
     // Hero
     heroTitle: 'The Perfect Gift for Every Occasion',
@@ -141,7 +139,6 @@ export const translations: Record<string, Translation> = {
     // Header
     headerTitle: 'Regalafacile',
     headerSubtitle: 'Encuentra el regalo perfecto',
-    configure: 'Configurar',
     
     // Hero
     heroTitle: 'El Regalo Perfecto para Cada Ocasión',
@@ -209,7 +206,6 @@ export const translations: Record<string, Translation> = {
     // Header
     headerTitle: 'Regalafacile',
     headerSubtitle: 'Finde das perfekte Geschenk',
-    configure: 'Konfigurieren',
     
     // Hero
     heroTitle: 'Das Perfekte Geschenk für Jeden Anlass',
@@ -277,7 +273,6 @@ export const translations: Record<string, Translation> = {
     // Header
     headerTitle: 'Regalafacile',
     headerSubtitle: 'Trouvez le cadeau parfait',
-    configure: 'Configurer',
     
     // Hero
     heroTitle: 'Le Cadeau Parfait pour Chaque Occasion',
@@ -345,7 +340,6 @@ export const translations: Record<string, Translation> = {
     // Header
     headerTitle: 'Regalafacile',
     headerSubtitle: '找到完美礼物',
-    configure: '配置',
     
     // Hero
     heroTitle: '每个场合的完美礼物',

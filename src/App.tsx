@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Gift, Settings, Heart } from 'lucide-react';
+import { Gift, Heart } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductCard } from './components/ProductCard';
 import { QueryTransformation } from './components/QueryTransformation';
-import { ApiKeyModal } from './components/ApiKeyModal';
 import { LanguageSelector } from './components/LanguageSelector';
 import { OpenAIService } from './services/openai';
 import { amazonService } from './services/amazon';
@@ -14,31 +13,14 @@ function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState<SearchQuery | null>(null);
-  const [apiKey, setApiKey] = useState<string>('');
-  const [showApiModal, setShowApiModal] = useState(false);
   const [error, setError] = useState<string>('');
   const { language, setLanguage, t, getArray, supportedLanguages } = useLanguage();
 
-  useEffect(() => {
-    // Prova prima dalle variabili d'ambiente, poi dal localStorage
-    const envApiKey = import.meta.env.VITE_OPENAI_API_KEY;
-    const savedApiKey = localStorage.getItem('openai_api_key');
-    
-    if (envApiKey) {
-      setApiKey(envApiKey);
-    } else if (savedApiKey) {
-      setApiKey(savedApiKey);
-    }
-  }, []);
-
-  const handleSaveApiKey = (newApiKey: string) => {
-    setApiKey(newApiKey);
-    localStorage.setItem('openai_api_key', newApiKey);
-  };
-
   const handleSearch = async (userQuery: string) => {
+    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    
     if (!apiKey) {
-      setShowApiModal(true);
+      setError(t('errorApiKey'));
       return;
     }
 
@@ -95,13 +77,6 @@ function App() {
                 onLanguageChange={setLanguage}
                 supportedLanguages={supportedLanguages}
               />
-              <button
-                onClick={() => setShowApiModal(true)}
-                className="btn-config"
-              >
-                <Settings className="w-5 h-5" />
-                {t('configure')}
-              </button>
             </div>
           </div>
         </div>
@@ -201,15 +176,6 @@ function App() {
         </div>
       </footer>
 
-      {/* API Key Modal */}
-      <ApiKeyModal
-        isOpen={showApiModal}
-        onClose={() => setShowApiModal(false)} 
-        onSave={handleSaveApiKey}
-        currentApiKey={apiKey}
-        t={t}
-        getArray={getArray}
-      />
     </div>
   );
 }
