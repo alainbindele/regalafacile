@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Amazon Ember', Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-amazon {
+    @apply bg-amazon-orange hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-amazon-secondary {
+    @apply bg-amazon-blue hover:bg-amazon-light text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  }
+  
+  .card-shadow {
+    @apply shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+}
