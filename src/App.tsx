@@ -17,8 +17,13 @@ function App() {
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
+    // Prova prima dalle variabili d'ambiente, poi dal localStorage
+    const envApiKey = import.meta.env.VITE_OPENAI_API_KEY;
     const savedApiKey = localStorage.getItem('openai_api_key');
-    if (savedApiKey) {
+    
+    if (envApiKey) {
+      setApiKey(envApiKey);
+    } else if (savedApiKey) {
       setApiKey(savedApiKey);
     }
   }, []);

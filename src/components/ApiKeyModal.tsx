@@ -15,6 +15,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
   currentApiKey 
 }) => {
   const [apiKey, setApiKey] = useState(currentApiKey || '');
+  const envApiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
   if (!isOpen) return null;
 
@@ -44,6 +45,18 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
         </div>
 
         <div>
+          {envApiKey && (
+            <div className="modal-info" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)', borderColor: '#bbf7d0' }}>
+              <div style={{ padding: '0.5rem', background: '#10b981', borderRadius: '0.5rem' }}>
+                <Shield className="w-4 h-4 text-white" />
+              </div>
+              <div className="modal-info-content" style={{ color: '#047857' }}>
+                <p className="modal-info-title">✅ API Key configurata tramite variabili d'ambiente</p>
+                <p>La tua API Key è già configurata nel sistema. Non è necessario inserirla manualmente.</p>
+              </div>
+            </div>
+          )}
+
           <div className="modal-info">
             <AlertCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
             <div className="modal-info-content">

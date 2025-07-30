@@ -1,15 +1,20 @@
 import { OpenAIResponse } from '../types';
 
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
+const DEFAULT_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || '';
 
 export class OpenAIService {
   private apiKey: string;
 
   constructor(apiKey: string) {
-    this.apiKey = apiKey;
+    this.apiKey = apiKey || DEFAULT_API_KEY;
   }
 
   async transformQuery(userQuery: string): Promise<OpenAIResponse> {
+    if (!this.apiKey) {
+      throw new Error('API Key OpenAI non configurata. Configura VITE_OPENAI_API_KEY nelle variabili d\'ambiente o tramite l\'interfaccia.');
+    }
+
     const prompt = `
 Trasforma questa richiesta in linguaggio naturale in una query ottimizzata per la ricerca su Amazon.
 Estrai anche categoria, range di prezzo (se specificato) e parole chiave principali.

@@ -12,23 +12,44 @@ Un sito moderno di affiliazione Amazon che utilizza l'intelligenza artificiale d
 
 ## 🛠️ Configurazione
 
-### 1. API Key OpenAI
-- Vai su [platform.openai.com](https://platform.openai.com/api-keys)
-- Crea un account o accedi
-- Genera una nuova API key
-- Inseriscila nell'applicazione cliccando su "Configura"
+### 1. Configurazione Variabili d'Ambiente
 
-### 2. Tag di Affiliazione Amazon
-Nel file `src/services/amazon.ts`, sostituisci:
-```typescript
-const AFFILIATE_TAG = 'tuo-tag-affiliato-20';
+Copia il file `.env.example` in `.env` e configura le tue credenziali:
+
+```bash
+cp .env.example .env
 ```
-con il tuo vero tag di affiliazione Amazon.
+
+Modifica il file `.env` con le tue credenziali:
+
+```env
+# OpenAI API Key per ChatGPT
+VITE_OPENAI_API_KEY=sk-your-openai-api-key-here
+
+# Amazon Affiliate Tag
+VITE_AMAZON_AFFILIATE_TAG=your-amazon-affiliate-tag-20
+```
+
+#### Come ottenere le credenziali:
+
+**OpenAI API Key:**
+1. Vai su [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+2. Crea un account o accedi
+3. Clicca su "Create new secret key"
+4. Copia la chiave nel file `.env`
+
+**Amazon Affiliate Tag:**
+1. Iscriviti al [Programma Affiliazione Amazon](https://affiliate-program.amazon.it/)
+2. Ottieni il tuo tag di affiliazione
+3. Inseriscilo nel file `.env`
+
+### 2. Configurazione Alternativa (UI)
+Se non vuoi usare le variabili d'ambiente, puoi configurare l'API Key OpenAI tramite l'interfaccia cliccando su "Configura" nell'header.
 
 ### 3. Integrazione API Amazon (Opzionale)
 Attualmente l'app usa prodotti demo. Per integrare le API reali di Amazon:
 - Iscriviti al [Product Advertising API](https://webservices.amazon.com/paapi5/documentation/)
-- Implementa le chiamate API reali nel servizio Amazon
+- Configura `VITE_AMAZON_ACCESS_KEY` e `VITE_AMAZON_SECRET_KEY` nel file `.env`
 
 ## 🏃‍♂️ Avvio Rapido
 
