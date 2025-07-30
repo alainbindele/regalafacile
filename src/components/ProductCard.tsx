@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Truck, ExternalLink, Heart } from 'lucide-react';
+import { Star, Truck, ExternalLink } from 'lucide-react';
 import { Product } from '../types';
 
 interface ProductCardProps {
